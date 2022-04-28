@@ -130,7 +130,7 @@ function Upload() {
         {
           suc && (
             <div className='sucalert'>
-            <Alert severity="info">This is a success alert — check it out!</Alert>
+            <Alert severity="info">File Uploaded Successfully </Alert>
         </div>
           )
         }

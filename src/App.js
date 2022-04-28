@@ -6,7 +6,6 @@ import Upload from './components/Upload';
 import {
   Route,
   Routes,
-  Navigate,
   BrowserRouter as Router
 } from 'react-router-dom'
 
