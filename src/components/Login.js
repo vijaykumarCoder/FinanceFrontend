@@ -26,7 +26,7 @@ const Login = () => {
 				localStorage.setItem("Token", resp.data.token)
 				localStorage.setItem("Username", resp.data.user_data["username"])
 				console.log(resp.data.user_data["username"])
-				navigate('/home');
+				navigate('/');
 			})
 			.catch(error => {
 				setWarning(true)

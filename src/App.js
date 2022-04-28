@@ -18,11 +18,11 @@ function App() {
       <Topbar />
       </div>
       <Routes>
-      <Route path="/" element={<Navigate replace to="/login" />} />
+      {/* <Route path="/" element={<Navigate replace to="/login" />} /> */}
       <Route  path="/login" element={ <Login />} />
       </Routes>
     <Routes>
-        <Route  path="/home" element={<Upload />} />
+        <Route  path="/" element={<Upload />} />
 </Routes>
     </Router>
    

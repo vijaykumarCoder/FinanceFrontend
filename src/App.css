@@ -50,6 +50,11 @@ font-weight: 800;
 	position: absolute;
 	margin-top: -50px;
 }
+.sucalert{
+	position: absolute;
+	margin: 0 auto;
+	width: 400px;
+}
 .uploadbox{
 	background-color: #9FE2BF;
 	width: 450px;

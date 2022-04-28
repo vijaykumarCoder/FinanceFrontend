@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef  } from 'react'
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -9,6 +9,7 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
+import { Alert } from '@mui/material';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -45,9 +46,13 @@ function a11yProps(index) {
 
 
 function Upload() {
+
+  const ref = useRef();
+
+
   const [filepath, setFilepath] = useState()
   const [userData, setUserData] = useState([])
-
+  const [suc,setSuc] = useState(false)
   const [datavalue,setDatavalue] = useState(0)
   const data = {
     upload: filepath
@@ -56,6 +61,7 @@ function Upload() {
     axios.get("http://localhost:8000/api/allusers")
       .then(resp => {
         setUserData(resp.data)
+        ref.current.value = "";
         console.log(resp)
       })
       .catch(error => {
@@ -99,6 +105,7 @@ function Upload() {
       // .then(response => response.text())
       .then(result => {
         setDatavalue(datavalue+1)
+        setSuc(true)
         console.log(result)
       })
       .catch(error => console.log('error', error));
@@ -120,9 +127,17 @@ function Upload() {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
+        {
+          suc && (
+            <div className='sucalert'>
+            <Alert severity="info">This is a success alert — check it out!</Alert>
+        </div>
+          )
+        }
          <div className='uploadbox'>
          <form onSubmit={Hi}>
             <input 
+            ref={ref}
             className='input-attach'
             type='file'
             name="fileattach"
